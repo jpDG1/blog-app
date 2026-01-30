@@ -1,0 +1,26 @@
+.pagination {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+
+  .page-link {
+    color: #007bff;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #007bff;
+      color: white;
+      transform: translateY(-2px);
+    }
+  }
+
+  .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: bold;
+  }
+
+  .page-item.disabled .page-link {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

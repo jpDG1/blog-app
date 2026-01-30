@@ -1,0 +1,76 @@
+<div class="card mb-4 shadow-sm">
+  <div class="card-header bg-dark text-white">
+    <h5 class="mb-0">
+      <i class="fa fa-plus-circle me-2"></i>
+      Dodaj nowy post
+    </h5>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #postForm="ngForm">
+      <div class="mb-3">
+        <label for="title" class="form-label">Tytuł</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="title"
+          name="title"
+          [(ngModel)]="title"
+          required
+          placeholder="Wpisz tytuł postu">
+      </div>
+
+      <div class="mb-3">
+        <label for="content" class="form-label">Treść</label>
+        <textarea 
+          class="form-control" 
+          id="content"
+          name="content"
+          [(ngModel)]="content"
+          rows="4"
+          required
+          placeholder="Wpisz treść postu"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">URL obrazka</label>
+        <input 
+          type="url" 
+          class="form-control" 
+          id="image"
+          name="image"
+          [(ngModel)]="image"
+          placeholder="https://example.com/image.jpg">
+        
+        <div *ngIf="image && image.trim().length > 0" class="mt-2">
+          <small class="text-muted">Podgląd:</small>
+          <img [src]="image" alt="preview" class="img-thumbnail mt-1" style="max-height: 150px;">
+        </div>
+      </div>
+
+      <!-- KATEGORIA -->
+      <div class="mb-3">
+        <label for="category" class="form-label">Kategoria</label>
+        <select 
+          class="form-select" 
+          id="category"
+          name="category"
+          [(ngModel)]="category"
+          required>
+          <option value="Technologia">Technologia</option>
+          <option value="Podróże">Podróże</option>
+          <option value="Jedzenie">Jedzenie</option>
+          <option value="Sport">Sport</option>
+          <option value="Inne">Inne</option>
+        </select>
+      </div>
+
+      <button 
+        type="submit" 
+        class="btn btn-success w-100"
+        [disabled]="!postForm.valid">
+        <i class="fa fa-paper-plane me-2"></i>
+        Dodaj post
+      </button>
+    </form>
+  </div>
+</div>

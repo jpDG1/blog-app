@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" [routerLink]="['/']">Blog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']">Home</a>
+        </li>
+        @if (authService.isLoggedIn()) {
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/blog']">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/profile']">
+              <i class="fa fa-user"></i> Profil
+            </a>
+          </li>
+        }
+      </ul>
+      
+      <div class="d-flex" *ngIf="authService.isLoggedIn()">
+        <button class="btn btn-outline-dark" (click)="signOut()">
+          <i class="fa fa-sign-out"></i> Wyloguj
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

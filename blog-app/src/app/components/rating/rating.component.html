@@ -1,0 +1,18 @@
+<div class="rating-container">
+  <div class="stars">
+    <i *ngFor="let star of stars"
+       [class.fa-star]="star <= getDisplayRating()"
+       [class.fa-star-o]="star > getDisplayRating()"
+       class="fa"
+       (mouseenter)="onStarHover(star)"
+       (mouseleave)="onStarLeave()"
+       (click)="onStarClick(star)">
+    </i>
+  </div>
+  
+  <div class="rating-info" *ngIf="votesCount > 0">
+    <small>
+      {{ averageRating | number:'1.1-1' }} ({{ votesCount }})
+    </small>
+  </div>
+</div>

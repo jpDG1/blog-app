@@ -1,0 +1,30 @@
+.theme-toggle-btn {
+  background: transparent;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+
+  &:hover {
+    transform: rotate(20deg) scale(1.1);
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  &.dark {
+    color: #ffc107;
+
+    &:hover {
+      background: rgba(255, 193, 7, 0.1);
+    }
+  }
+
+  i {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,43 @@
+<div class="card shadow-sm h-100">
+  <app-blog-item-image [image]="image"></app-blog-item-image>
+  
+  <div class="favorite-icon" (click)="toggleFavorite()">
+    <i class="fa" 
+       [ngClass]="{'fa-heart': isFavorite(), 'fa-heart-o': !isFavorite()}"
+       style="cursor: pointer; color: red; font-size: 1.5rem;">
+    </i>
+  </div>
+  
+  <div class="card-body d-flex flex-column">
+    <div class="mb-2" *ngIf="category">
+      <span class="badge category-badge">
+        {{ getCategoryIcon() }} {{ category }}
+      </span>
+    </div>
+
+    <h5 class="card-title">{{ title }}</h5>
+    
+    <div class="text-content flex-grow-1">
+      <app-blog-item-text [text]="text" [id]="id"></app-blog-item-text>
+    </div>
+
+    <div class="mt-auto">
+      <app-rating *ngIf="id" [postId]="id!"></app-rating>
+      
+      <div class="mt-3">
+        <a [routerLink]="['/blog/detail', id]" class="btn btn-primary w-100">
+          <i class="fa fa-arrow-right"></i> Więcej
+        </a>
+      </div>
+      
+      <div *ngIf="isAuthor()" class="mt-2 d-flex gap-2">
+        <button class="btn btn-sm btn-warning flex-fill" (click)="onEdit()">
+          <i class="fa fa-edit"></i> Edytuj
+        </button>
+        <button class="btn btn-sm btn-danger flex-fill" (click)="onDelete()">
+          <i class="fa fa-trash"></i> Usuń
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

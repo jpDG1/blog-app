@@ -1,0 +1,33 @@
+<div class="gallery-container">
+  <h2 class="text-center mb-4">
+    <i class="fa fa-picture-o"></i> Galeria Zdjęć
+  </h2>
+
+
+  <div class="row g-3">
+    <div *ngFor="let image of images" class="col-6 col-md-4 col-lg-3">
+      <div class="gallery-item" (click)="openImage(image.url)">
+        <img [src]="image.url" [alt]="image.title" class="img-fluid">
+        <div class="gallery-overlay">
+          <i class="fa fa-search-plus"></i>
+          <p class="mb-0">{{ image.title }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div *ngIf="images.length === 0" class="alert alert-info text-center">
+    <i class="fa fa-info-circle"></i> Brak zdjęć w galerii
+  </div>
+
+  
+  <div *ngIf="selectedImage" class="image-modal" (click)="closeImage()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeImage()">
+        <i class="fa fa-times"></i>
+      </button>
+      <img [src]="selectedImage" alt="enlarged" class="img-fluid">
+    </div>
+  </div>
+</div>

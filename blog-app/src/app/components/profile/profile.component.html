@@ -1,0 +1,87 @@
+<div class="profile-section">
+  <div class="container py-5">
+    <div class="profile-header text-center mb-5">
+      <div class="profile-avatar mx-auto mb-4">
+        <i class="fa fa-user"></i>
+      </div>
+      <h1 class="display-5 fw-bold mb-2">
+        {{ user?.username || user?.email?.split('@')[0] || 'Użytkownik' }}
+      </h1>
+      <p class="text-muted">{{ user?.email }}</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="stat-card card text-center">
+          <div class="card-body">
+            <i class="fa fa-newspaper-o stat-icon mb-3"></i>
+            <h3 class="mb-1">{{ userPosts }}</h3>
+            <p class="text-muted mb-0">Twoje posty</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="stat-card card text-center">
+          <div class="card-body">
+            <i class="fa fa-heart stat-icon mb-3"></i>
+            <h3 class="mb-1">{{ favoritesCount }}</h3>
+            <p class="text-muted mb-0">Ulubione</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="stat-card card text-center">
+          <div class="card-body">
+            <i class="fa fa-star stat-icon mb-3"></i>
+            <h3 class="mb-1">{{ totalRatings }}</h3>
+            <p class="text-muted mb-0">Oceny</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header">
+        <h5 class="mb-0">
+          <i class="fa fa-info-circle me-2"></i>
+          Informacje o koncie
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="info-label">Email</label>
+            <p class="info-value">{{ user?.email }}</p>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="info-label">Nazwa użytkownika</label>
+            <p class="info-value">
+              {{ user?.username || user?.email?.split('@')[0] || 'Brak' }}
+            </p>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="info-label">ID użytkownika</label>
+            <p class="info-value font-monospace">{{ user?.userId }}</p>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="info-label">Data dołączenia</label>
+            <p class="info-value">{{ joinDate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a [routerLink]="['/blog']" class="btn btn-primary me-3">
+        <i class="fa fa-newspaper-o me-2"></i>
+        Moje posty
+      </a>
+      <a [routerLink]="['/favorites']" class="btn btn-outline-dark">
+        <i class="fa fa-heart me-2"></i>
+        Ulubione
+      </a>
+    </div>
+  </div>
+</div>

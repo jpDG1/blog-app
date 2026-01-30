@@ -1,0 +1,49 @@
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.stars {
+  display: flex;
+  gap: 0.25rem;
+
+  i {
+    font-size: 1.25rem;
+    color: #ffc107 !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      color: #ffb300 !important;
+    }
+  }
+
+  .fa-star {
+    color: #ffc107 !important;
+  }
+
+  .fa-star-o {
+    color: #ffc107 !important;
+  }
+}
+
+.rating-info {
+  small {
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+}
+
+// Dark mode
+:host-context(body.dark-mode) {
+  .stars i {
+    color: #ffc107 !important;
+  }
+
+  .rating-info small {
+    color: #adb5bd;
+  }
+}

@@ -1,0 +1,352 @@
+.blog-section {
+  min-height: 100vh;
+  background: var(--bg-color);
+  position: relative;
+  padding: 2rem 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .blog-header {
+    animation: fadeInUp 0.6s ease-out;
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      color: var(--text-color) !important;
+      letter-spacing: -0.02em;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+
+      i {
+        margin-right: 1rem;
+        opacity: 0.9;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    .lead {
+      color: var(--text-muted) !important;
+      font-size: 1.25rem;
+    }
+  }
+
+  .search-wrapper {
+    position: relative;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+    margin-bottom: 2rem;
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      z-index: 10;
+      font-size: 1.1rem;
+    }
+
+    ::ng-deep app-search-bar input {
+      padding-left: 3rem;
+      background: var(--input-bg) !important;
+      border: 2px solid var(--input-border) !important;
+      border-radius: 12px;
+      color: var(--text-color) !important;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      font-size: 1rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+
+      &:focus {
+        border-color: var(--text-color) !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .actions-bar {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+    margin-bottom: 2rem;
+  }
+
+  .btn-outline-dark {
+    border: 2px solid var(--text-color) !important;
+    color: var(--text-color) !important;
+    background: transparent !important;
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 0.65rem 1.5rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    i {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background: var(--text-color) !important;
+      color: var(--bg-color) !important;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+      i {
+        transform: scale(1.1);
+      }
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+
+    .badge {
+      background: var(--text-color) !important;
+      color: var(--bg-color) !important;
+      border-radius: 50%;
+      min-width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    &:hover .badge {
+      background: var(--bg-color) !important;
+      color: var(--text-color) !important;
+    }
+  }
+
+  .d-flex.gap-2 {
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+
+    .btn {
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      }
+    }
+  }
+
+  .row {
+    margin-top: 2rem;
+
+    > div {
+      animation: fadeInUp 0.6s ease-out both;
+      
+      @for $i from 1 through 12 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{0.5 + ($i * 0.08)}s;
+        }
+      }
+    }
+  }
+
+  ::ng-deep app-blog-item {
+    .card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid var(--card-border);
+      
+      &:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        border-color: var(--text-color);
+
+        .card-title {
+          color: var(--btn-primary-bg) !important;
+        }
+
+        img {
+          transform: scale(1.08);
+        }
+
+        .btn-primary {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+      }
+
+      .card-body {
+        padding: 1.5rem;
+      }
+
+      .card-title {
+        transition: color 0.3s ease;
+        font-weight: 700;
+        font-size: 1.35rem;
+        margin-bottom: 1rem;
+      }
+
+      img {
+        transition: transform 0.5s ease;
+        border-radius: 14px 14px 0 0;
+      }
+
+      .btn {
+        transition: all 0.3s ease;
+        font-weight: 600;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    .favorite-icon {
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.25) rotate(10deg);
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  ::ng-deep app-pagination {
+    animation: fadeInUp 0.6s ease-out 1.5s both;
+    margin-top: 3rem;
+
+    .pagination {
+      .page-link {
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        margin: 0 0.25rem;
+        font-weight: 600;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+      }
+
+      .page-item.active .page-link {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  ::ng-deep app-add-post {
+    animation: fadeInUp 0.6s ease-out 0.45s both;
+    
+    .card {
+      transition: all 0.3s ease;
+      
+      &:hover {
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      }
+    }
+
+    .btn-success {
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+body.dark-mode {
+  .blog-section::before {
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-section {
+    .blog-header h1 {
+      font-size: 2.5rem;
+    }
+
+    .btn-outline-dark {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+.category-filters {
+  animation: fadeInUp 0.6s ease-out 0.35s both;
+
+  .btn-outline-dark {
+    &.active {
+      background: var(--text-color) !important;
+      color: var(--bg-color) !important;
+      font-weight: 700;
+    }
+  }
+}
+}

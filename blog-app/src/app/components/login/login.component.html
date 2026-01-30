@@ -1,0 +1,66 @@
+<div class="auth-section">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-5">
+        <div class="auth-card">
+          <div class="auth-header text-center mb-4">
+            <div class="icon-circle mb-3">
+              <i class="fa fa-sign-in fa-2x"></i>
+            </div>
+            <h2 class="fw-bold mb-2">Witaj ponownie</h2>
+            <p class="text-muted">Zaloguj się do swojego konta</p>
+          </div>
+
+          <form autocomplete="off">
+            <div class="mb-3">
+              <label class="form-label">Email lub nazwa użytkownika</label>
+              <input 
+                [(ngModel)]="credentials.login" 
+                type="text"
+                class="form-control form-control-lg" 
+                name="username" 
+                placeholder="Wpisz swój login">
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label">Hasło</label>
+              <input 
+                [(ngModel)]="credentials.password" 
+                type="password"
+                class="form-control form-control-lg" 
+                name="password" 
+                placeholder="Wpisz hasło">
+            </div>
+
+            <div *ngIf="loginError" class="alert alert-danger">
+              <i class="fa fa-exclamation-circle"></i>
+              Nieprawidłowy login lub hasło
+            </div>
+
+            <button 
+              (click)="signIn()" 
+              class="btn btn-dark btn-lg w-100 mb-3" 
+              type="button">
+              Zaloguj się
+              <i class="fa fa-arrow-right ms-2"></i>
+            </button>
+
+            <div class="text-center">
+              <p class="text-muted mb-0">
+                Nie masz konta? 
+                <a [routerLink]="['/signup']" class="text-dark fw-bold">Zarejestruj się</a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        
+        <div class="text-center mt-4">
+          <a [routerLink]="['/']" class="text-muted">
+            <i class="fa fa-arrow-left"></i> Powrót do strony głównej
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="auth-section">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-5">
+        <div class="auth-card">
+          <div class="auth-header text-center mb-4">
+            <div class="icon-circle mb-3">
+              <i class="fa fa-user-plus fa-2x"></i>
+            </div>
+            <h2 class="fw-bold mb-2">Dołącz do nas</h2>
+            <p class="text-muted">Stwórz swoje konto w kilka sekund</p>
+          </div>
+
+          <form autocomplete="off">
+            <div class="mb-3">
+              <label class="form-label">Imię</label>
+              <input 
+                type="text" 
+                class="form-control form-control-lg" 
+                [(ngModel)]="credentials.name"
+                name="name" 
+                placeholder="Wpisz swoje imię">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input 
+                type="email" 
+                class="form-control form-control-lg" 
+                [(ngModel)]="credentials.email"
+                name="email" 
+                placeholder="twoj@email.com">
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label">Hasło</label>
+              <input 
+                type="password" 
+                class="form-control form-control-lg" 
+                [(ngModel)]="credentials.password"
+                name="password" 
+                placeholder="Minimum 5 znaków">
+              <small class="text-muted">Hasło musi mieć od 5 do 15 znaków</small>
+            </div>
+
+            <button 
+              (click)="create()" 
+              type="button" 
+              class="btn btn-dark btn-lg w-100 mb-3">
+              Zarejestruj się
+              <i class="fa fa-arrow-right ms-2"></i>
+            </button>
+
+            <div class="text-center">
+              <p class="text-muted mb-0">
+                Masz już konto? 
+                <a [routerLink]="['/login']" class="text-dark fw-bold">Zaloguj się</a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <div class="text-center mt-4">
+          <a [routerLink]="['/']" class="text-muted">
+            <i class="fa fa-arrow-left"></i> Powrót do strony głównej
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+.navbar {
+  background: var(--bg-color) !important;
+  border-bottom: 1px solid var(--card-border);
+  transition: all 0.3s ease;
+
+  .navbar-brand {
+    color: var(--text-color) !important;
+    font-weight: 600;
+  }
+
+  .nav-link {
+    color: var(--text-color) !important;
+    font-weight: 500;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .navbar-toggler {
+    border-color: var(--card-border);
+  }
+
+  .btn-outline-dark {
+    border-color: var(--text-color) !important;
+    color: var(--text-color) !important;
+    background: transparent !important;
+
+    &:hover {
+      background: var(--text-color) !important;
+      color: var(--bg-color) !important;
+    }
+  }
+
+  .btn-dark {
+    background: var(--btn-primary-bg) !important;
+    border-color: var(--btn-primary-bg) !important;
+    color: var(--btn-primary-text) !important;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+body.dark-mode {
+  .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+  }
+}

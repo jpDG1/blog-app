@@ -1,0 +1,32 @@
+<nav *ngIf="totalPages > 1" aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="previousPage()" style="cursor: pointer;">
+        <i class="fa fa-chevron-left"></i> Poprzednia
+      </a>
+    </li>
+
+    
+    <li *ngFor="let page of pages" 
+        class="page-item" 
+        [class.active]="page === currentPage">
+      <a class="page-link" (click)="changePage(page)" style="cursor: pointer;">
+        {{ page }}
+      </a>
+    </li>
+
+    
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <a class="page-link" (click)="nextPage()" style="cursor: pointer;">
+        Następna <i class="fa fa-chevron-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="text-center text-muted small mt-2">
+  Strona {{ currentPage }} z {{ totalPages }} 
+  ({{ totalItems }} {{ totalItems === 1 ? 'post' : 'postów' }})
+</div>

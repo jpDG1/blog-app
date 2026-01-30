@@ -1,0 +1,64 @@
+<div class="comments-section mt-4">
+  <h5 class="mb-3">
+    <i class="fa fa-comments"></i> Komentarze ({{ comments.length }})
+  </h5>
+
+  <!-- Formularz dodawania komentarza -->
+  <div *ngIf="authService.isLoggedIn()" class="card mb-3">
+    <div class="card-body">
+      <textarea 
+        class="form-control mb-2" 
+        rows="3"
+        placeholder="Dodaj komentarz..."
+        [(ngModel)]="newCommentContent"
+        maxlength="500"></textarea>
+      
+      <div class="d-flex justify-content-between align-items-center">
+        <small class="text-muted">
+          {{ newCommentContent.length }}/500 znaków
+        </small>
+        <button 
+          class="btn btn-primary btn-sm"
+          (click)="addComment()"
+          [disabled]="!newCommentContent.trim()">
+          <i class="fa fa-paper-plane"></i> Wyślij
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!authService.isLoggedIn()" class="alert alert-info">
+    <i class="fa fa-info-circle"></i> 
+    Musisz być zalogowany aby dodać komentarz
+  </div>
+
+  <!-- Lista komentarzy -->
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Ładowanie...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && comments.length === 0" class="alert alert-secondary">
+    <i class="fa fa-comment-o"></i> Brak komentarzy. Bądź pierwszy!
+  </div>
+
+  <div *ngFor="let comment of comments" class="card mb-2">
+    <div class="card-body py-2">
+      <div class="d-flex justify-content-between align-items-start">
+        <div class="flex-grow-1">
+          <strong>{{ comment.author?.name }}</strong>
+          <small class="text-muted ms-2">{{ getTimeAgo(comment.createdAt) }}</small>
+          <p class="mb-0 mt-1">{{ comment.content }}</p>
+        </div>
+        
+        <button 
+          *ngIf="isCommentAuthor(comment)"
+          class="btn btn-sm btn-outline-danger"
+          (click)="deleteComment(comment._id)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

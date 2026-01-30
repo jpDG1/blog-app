@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Ładowanie...</span>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error">
+    <h1>{{ title }}</h1>
+    <img [src]="image" alt="{{ title }}" class="img-fluid mb-3">
+    <p>{{ text }}</p>
+    
+    <a [routerLink]="['/blog']" class="btn btn-secondary">
+      <i class="fa fa-arrow-left"></i> Powrót do bloga
+    </a>
+
+    <app-comments *ngIf="postId" [postId]="postId"></app-comments>
+  </div>
+</div>

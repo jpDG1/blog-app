@@ -1,0 +1,7 @@
+<button 
+  class="theme-toggle-btn btn"
+  [class.dark]="themeService.isDarkMode()"
+  (click)="toggleTheme()"
+  title="Przełącz motyw">
+  <i class="fa" [ngClass]="themeService.isDarkMode() ? 'fa-sun-o' : 'fa-moon-o'"></i>
+</button>

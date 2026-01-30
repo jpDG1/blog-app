@@ -1,0 +1,121 @@
+.btn-success {
+  background: var(--btn-primary-bg) !important;
+  border-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-info {
+  background: var(--btn-primary-bg) !important;
+  border-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+  border-radius: 12px;
+  font-weight: 600;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+:host {
+  display: block;
+  background: var(--bg-color);
+  min-height: 100vh;
+}
+
+.container {
+  background: transparent;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div {
+  color: var(--text-color);
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.card {
+  background: var(--card-bg) !important;
+  border-color: var(--card-border) !important;
+
+  .card-body {
+    background: var(--card-bg) !important;
+  }
+
+  .card-title {
+    color: var(--text-color) !important;
+  }
+
+  .card-text {
+    color: var(--text-color) !important;
+  }
+
+  .card-header {
+    background: var(--input-bg) !important;
+    color: var(--text-color) !important;
+    border-color: var(--card-border) !important;
+  }
+}
+
+.btn-primary {
+  background: var(--btn-primary-bg) !important;
+  border-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.form-label {
+  color: var(--text-color) !important;
+}
+
+.form-control,
+input,
+textarea {
+  background: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+  color: var(--text-color) !important;
+
+  &:focus {
+    background: var(--card-bg) !important;
+    border-color: var(--text-color) !important;
+  }
+
+  &::placeholder {
+    color: var(--text-muted) !important;
+  }
+}
+
+.img-thumbnail {
+  background: var(--input-bg) !important;
+  border-color: var(--card-border) !important;
+}
+
+.pagination {
+  .page-link {
+    background: var(--card-bg) !important;
+    border-color: var(--card-border) !important;
+    color: var(--text-color) !important;
+
+    &:hover {
+      background: var(--btn-primary-bg) !important;
+      color: var(--btn-primary-text) !important;
+    }
+  }
+
+  .page-item.active .page-link {
+    background: var(--btn-primary-bg) !important;
+    color: var(--btn-primary-text) !important;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="search-container mb-4">
+  <div class="input-group">
+    <span class="input-group-text">
+      <i class="fa fa-search"></i>
+    </span>
+    <input 
+      type="search" 
+      class="form-control" 
+      placeholder="Szukaj postów..."
+      [(ngModel)]="filterText"
+      (ngModelChange)="sendFilter()">
+  </div>
+</div>
