@@ -1,0 +1,19 @@
+# Node modules
+**/node_modules/
+**/npm-debug.log
+
+# Angular
+blog-app/.angular/
+blog-app/dist/
+blog-app/tmp/
+
+# Environment
+**/.env
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
